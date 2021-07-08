@@ -1,1 +1,386 @@
 /* You can add global styles to this file, and also import other style files */
+@import "theme";
+
+@font-face {
+  font-family: 'Ambit';
+  src: url('assets/fonts/Ambit-Black.ttf') format('truetype');
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: 'Ambit';
+  src: url('assets/fonts/Ambit-BlackItalic.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Ambit';
+  src: url('assets/fonts/Ambit-Bold.ttf') format('truetype');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Ambit';
+  src: url('assets/fonts/Ambit-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Ambit';
+  src: url('assets/fonts/Ambit-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Ambit';
+  src: url('assets/fonts/Ambit-SemiBoldItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Ambit';
+  src: url('assets/fonts/Ambit-Regular.ttf') format('truetype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Ambit';
+  src: url('assets/fonts/Ambit-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Ambit';
+  src: url('assets/fonts/Ambit-Light.ttf') format('truetype');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Ambit';
+  src: url('assets/fonts/Ambit-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Ambit';
+  src: url('assets/fonts/Ambit-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: 'Ambit';
+  src: url('assets/fonts/Ambit-ExtraLightItalic.ttf') format('truetype');
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Ambit';
+  src: url('assets/fonts/Ambit-Thin.ttf') format('truetype');
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: 'Ambit';
+  src: url('assets/fonts/Ambit-ThinItalic.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+}
+
+body {
+  font-family: 'Ambit', sans-serif;
+}
+
+.bg-main {
+  background-color: $bg-color;
+}
+
+.main-container {
+  min-height: 100vh;
+  position: relative;
+  z-index: 0;
+  overflow: auto;
+}
+
+.main-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("assets/svg/rudder.svg"), url("assets/svg/rudder.svg");
+  opacity: 0.1;
+  z-index: -1;
+  background-position: -150px -150px, calc(100vw - 150px) calc(100vh - 150px);
+  background-repeat: no-repeat, no-repeat;
+  background-size: 300px, 300px;
+}
+
+@media only screen and (min-width: 1200px) {
+  .main-container::before {
+    background-position: -250px -250px, calc(100vw - 250px) calc(100vh - 250px);
+    background-repeat: no-repeat, no-repeat;
+    background-size: 500px, 500px;
+  }
+
+  .main-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("assets/svg/ribbons.svg"), url("assets/svg/ribbons.svg");
+    background-position: 88vw -50vh, 9vw 70vh;
+    background-repeat: no-repeat;
+    background-size: 6vw;
+    z-index: -1;
+  }
+}
+
+.animation-container {
+  padding: 20px 0;
+  width: 100%;
+  height: 100%;
+  -ms-flex-positive:1;
+  flex-grow:1;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack:center;
+  justify-content:center;
+  -ms-flex-align:center;
+  align-items:center;
+  position: relative;
+}
+
+.navigation-btn {
+  height: 70px;
+  width: 70px;
+  border-radius: 100%;
+  background-color: $bg-color;
+  padding: 16px 14px;
+  margin: 0 5px;
+  border: none;
+  box-shadow: 0 0 19px 1px rgba(111,111,111,0.5);
+  -webkit-box-shadow: 0 0 19px 1px rgba(111,111,111,0.5);
+  -moz-box-shadow: 0 0 19px 1px rgba(111,111,111,0.5);
+}
+
+.navigation-btn img {
+  height: 38px;
+}
+
+.navigation-btn.left {
+  text-align: left;
+}
+
+.navigation-btn.right {
+  text-align: right;
+}
+.animation-child {
+  padding: 0 15px;
+}
+
+@media only screen and (min-width: 1200px) {
+  .animation-container {
+    width: calc(100vw - 340px);
+  }
+
+  .animation-child {
+    width: calc(100vw - 340px);
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack:center;
+    justify-content:center;
+  }
+
+  .mcq-row {
+    width: calc(100vw - 370px);
+  }
+
+  .navigation-btn.left {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+  }
+
+  .navigation-btn.right {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+  }
+}
+
+
+.nav-container {
+  text-align: center;
+  padding: 10px 0;
+}
+
+.rudder-logo {
+  height: 190px;
+  background: url("assets/rudder-tool.svg") center no-repeat;
+  background-size: contain;
+}
+
+p.welcome-text {
+  font-size: 22px;
+  color: $primary;
+  text-align: center;
+}
+
+p.welcome-text span.bold {
+  font-weight: 700;
+}
+
+.text {
+  padding-top: 65px;
+}
+
+hr.vertical-line {
+  height: 1px;
+  background-color: $primary;
+  border: none;
+  opacity: 0.2;
+}
+
+@media only screen and (min-width: 1200px) {
+  hr.vertical-line {
+    width: 450px;
+  }
+}
+
+p.welcome-subtext {
+  text-align: center;
+  font-weight: 200;
+  color: $accent;
+  font-size: 20px;
+}
+
+.stroke-text {
+  color: $bg-color;
+  text-shadow: -1px -1px 0 $primary, 1px -1px 0 $primary, -1px 1px 0 $primary, 1px 1px 0 $primary;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-style: italic;
+  font-size: 70px;
+  line-height: 60px;
+}
+
+.question {
+  text-align: center;
+  color: $primary;
+  font-weight: 900;
+  font-style: italic;
+  font-size: 40px;
+}
+
+.mcq-btn {
+  height: 90px;
+  width: 280px;
+  border-radius: 45px;
+  padding: 0;
+}
+
+.mcq-btn.orange {
+  border: dashed 1px $orange;
+  background-color: $orange-disabled;
+}
+
+.mcq-btn.green {
+  border: dashed 1px $green;
+  background-color: $green-disabled;
+}
+
+.mcq-btn > span.btn-text {
+  font-size: 28px;
+  font-weight: 900;
+  font-style: italic;
+  color: white;
+}
+
+.mcq-btn.orange.active {
+  border: solid 1px $orange;
+  background-color: $orange;
+}
+
+.mcq-btn.green.active {
+  border: solid 1px $green;
+  background-color: $green;
+}
+
+.rudder-select {
+  width: 400px;
+  border-radius: 17px;
+  background-color: $orange-disabled;
+  border: dashed 1px $orange;
+}
+
+.rudder-select:hover {
+  cursor: pointer;
+}
+
+.rudder-select .trigger {
+  padding: 0 15px;
+  border-radius: 16px;
+  border-bottom: dashed 1px $orange;
+}
+
+.rudder-select .trigger .chevron {
+  width: 20px;
+}
+
+.rudder-select .trigger .trigger-label {
+  font-size: 28px;
+  color: white;
+  font-weight: 900;
+  font-style: italic;
+}
+
+.rudder-select .trigger .trigger-placeholder {
+  font-size: 28px;
+  color: white;
+  opacity: 0.8;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.rudder-select .options {
+  max-height: 200px;
+  overflow-y: scroll;
+  border-radius: 16px;
+}
+
+.rudder-select .options .option {
+  padding: 5px 15px;
+}
+
+.rudder-select .options .option:hover {
+  background-color: $orange-disabled;
+}
+
+.rudder-select .options .option .option-text {
+  font-size: 28px;
+  color: white;
+  font-style: italic;
+}
+
+.svg-map {
+  height: 500px;
+}
+
+path.active {
+  fill: #1A2C50FF;
+}
+
+path.inactive {
+  opacity: 0.65;
+}

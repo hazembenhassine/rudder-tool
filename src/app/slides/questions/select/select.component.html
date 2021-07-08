@@ -1,0 +1,29 @@
+<div class="d-flex flex-column mcq-row">
+  <div>
+    <p class="question text-uppercase">
+      {{ question }}
+    </p>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-auto">
+      <div class="rudder-select">
+        <div (click)="toggleOpen()" class="trigger">
+          <div class="row align-items-center">
+            <div class="col">
+            <span *ngIf="value" class="trigger-label">{{ value }}</span>
+              <span *ngIf="!value" class="trigger-placeholder">{{ placeholder }}</span>
+            </div>
+            <div class="col-auto">
+              <img class="chevron" src="assets/icons/ic-chevron-down-select.svg" alt="">
+            </div>
+          </div>
+        </div>
+        <div [@openClose]="isOpen ? 'open' : 'closed'" class="options">
+          <div *ngFor="let option of options" (click)="setValue(option)" class="option">
+            <span class="option-text">{{ option }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="d-flex flex-column mcq-row">
+  <div>
+    <p class="question text-uppercase">
+      {{ question }}
+    </p>
+  </div>
+  <div class="row justify-content-center">
+    <div *ngFor="let answer of answers" class="col-lg-4 py-4 text-center">
+      <button (click)="setSelected(answer)" [ngClass]="{'active': answer === selected}" class="mcq-btn {{color}}">
+        <span class="btn-text">{{ answer }}</span>
+      </button>
+    </div>
+  </div>
+</div>
