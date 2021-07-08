@@ -72,7 +72,7 @@ export class AppComponent implements OnInit {
     },
     {
       step: 10,
-      question: 'In which stage is your project ?',
+      question: 'What is your project type ?',
       answers: ['Idea', 'MVP', 'Startup', 'Social Business', 'Association', 'SME'],
       color: 'orange'
     },
