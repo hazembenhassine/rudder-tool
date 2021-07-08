@@ -118,7 +118,7 @@ export class AppComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-    this.animationState = 7;
+    this.animationState = 0;
   }
 
   incrementState(): void {
